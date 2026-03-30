@@ -1,16 +1,22 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import ModelsContainer from '../ModelsContainer/ModelsContainer';
+import Cart from '../Cart/Cart';
 
 const Models = ({modelPromise}) => {
-    const models = use(modelPromise)    
+    const models = use(modelPromise) 
+    const [handleTab, setHandleTab] = useState("ModelsContainer")
     
     return (
-        <div className='space-y-8'>
-            <div className='text-center space-y-5'>
-                <h2 className='text-5xl font-bold'>Choose Your AI Model</h2>
-                <p className='text-gray-600 text-xl'>One subscription gives you access to all frontier AI models</p>
+        <div className=''>
+            <div className='flex justify-center gap-15 my-12'>
+                <button onClick={()=>setHandleTab("ModelsContainer")} className={handleTab==="ModelsContainer"? "btn bg-linear-to-r from-red-600 to-orange-400 text-white text-lg rounded-3xl px-15 py-5 cursor-pointer" : "cursor-pointer"}>Models</button>
+                <button onClick={()=>setHandleTab("Cart")} className={handleTab==="Cart"? "btn bg-linear-to-r from-red-600 to-orange-400 text-white text-lg rounded-3xl px-15 py-5 cursor-pointer" : "cursor-pointer"}>Cart (0)</button>
             </div>
-            <ModelsContainer models={models}></ModelsContainer>
+            {handleTab === "ModelsContainer"? <ModelsContainer models={models}></ModelsContainer> 
+            : <Cart></Cart>}
+            
+            
+
         </div>
     );
 };

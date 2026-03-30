@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const ModelCard = ({ model }) => {
+const ModelCard = ({ model, cartItem, setCartItem }) => {
     const [isSubscribed, setIsSubscribed] = useState(false)   
     const handleSubscription = () => {
         setIsSubscribed(!isSubscribed)
-    }
+        setCartItem([...cartItem, model])
+    }    
 
   return (
     <div className="shadow-sm rounded-2xl p-4 flex flex-col">

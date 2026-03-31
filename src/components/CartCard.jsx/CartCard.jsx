@@ -1,7 +1,6 @@
 import React from 'react';
 
-const CartCard = ({item}) => {
-    
+const CartCard = ({item, deleteItem}) => {
     return (
         <div className='flex justify-between bg-gray-200/50 p-4 shadow-sm gap-5 rounded-2xl'>
   {/* Image - fixed width, won't shrink */}
@@ -26,7 +25,7 @@ const CartCard = ({item}) => {
   </div>
 
   {/* Close button */}
-  <button className='text-xl mr-1.5 text-gray-700 cursor-pointer shrink-0'>X</button>
+  <button onClick={()=>deleteItem(item.id)} className='text-xl mr-1.5 text-gray-700 cursor-pointer shrink-0'>X</button>
 </div>
     );
 };

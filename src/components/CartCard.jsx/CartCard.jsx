@@ -1,6 +1,11 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const CartCard = ({item, deleteItem}) => {
+    const handleDelete = () => {
+        deleteItem(item.id)
+        toast.success(`${item.title} remove from cart!`);
+    }
     return (
         <div className='flex justify-between bg-gray-200/50 p-4 shadow-sm gap-5 rounded-2xl'>
   {/* Image - fixed width, won't shrink */}
@@ -25,8 +30,8 @@ const CartCard = ({item, deleteItem}) => {
   </div>
 
   {/* Close button */}
-  <button onClick={()=>deleteItem(item.id)} className='text-xl mr-1.5 text-gray-700 cursor-pointer shrink-0'>X</button>
-</div>
+  <button onClick={handleDelete} className='text-xl mr-1.5 text-gray-700 cursor-pointer shrink-0'>X</button>
+    </div>
     );
 };
 

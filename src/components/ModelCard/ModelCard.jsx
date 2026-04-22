@@ -33,7 +33,7 @@ const ModelCard = ({ model, cartItem, setCartItem }) => {
     return (
         <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
             {/* Image Container */}
-            <div className="bg-gray-50 p-6 flex justify-center items-center h-48">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 flex justify-center items-center h-48">
                 <img 
                     className="h-32 w-32 object-contain transition-transform duration-300 hover:scale-105" 
                     src={model.image} 
@@ -56,7 +56,7 @@ const ModelCard = ({ model, cartItem, setCartItem }) => {
                 {/* Price Section */}
                 <div className="mb-5">
                     <div className="flex items-baseline gap-1">
-                        <span className="text-2xl font-bold text-gray-900">
+                        <span className="text-2xl font-bold bg-gradient-to-r from-red-600 to-violet-600 bg-clip-text text-transparent">
                             ${model.price}
                         </span>
                         <span className="text-gray-500 text-sm">/month</span>
@@ -69,8 +69,8 @@ const ModelCard = ({ model, cartItem, setCartItem }) => {
                     disabled={isInCart || isLoading}
                     className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
                         isInCart
-                            ? 'bg-green-500 text-white cursor-default'
-                            : 'bg-red-500 hover:bg-red-600 text-white cursor-pointer'
+                            ? 'bg-gradient-to-r from-green-500 to-green-600 text-white cursor-default'
+                            : 'bg-gradient-to-r from-red-500 to-violet-600 hover:from-red-600 hover:to-violet-700 text-white cursor-pointer shadow-md hover:shadow-lg'
                     }`}
                 >
                     {isLoading ? (

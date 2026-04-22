@@ -12,10 +12,7 @@ const CartContainer = ({ cartItem, setCartItem }) => {
     const deleteItem = (id) => {
         const deletedArr = cartItem.filter(item => item.id !== id);
         setCartItem(deletedArr);
-        toast.info("Item removed from cart", {
-            position: "top-right",
-            autoClose: 2000,
-        });
+        // Removed the info toast from here - now only CartCard handles the toast
     };
 
     const clearCart = () => {
@@ -51,7 +48,7 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                         <p className='text-gray-400 text-lg mb-6'>Looks like you haven't added any items yet</p>
                         <button 
                             onClick={() => window.location.href = '/'}
-                            className='bg-gradient-to-r cursor-pointer from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-red-500/50'
+                            className='bg-gradient-to-r cursor-pointer from-red-500 to-violet-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-violet-500/50'
                         >
                             Continue Shopping
                         </button>
@@ -61,20 +58,20 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                         {/* Header */}
                         <div className='flex justify-between items-center mb-8'>
                             <div className='flex items-center gap-3'>
-                                <div className='bg-red-100 p-3 rounded-full'>
-                                    <FaShoppingCart className='text-red-600 text-2xl' />
+                                <div className='bg-violet-100 p-3 rounded-full'>
+                                    <FaShoppingCart className='text-violet-600 text-2xl' />
                                 </div>
                                 <h2 className='text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent'>
                                     Your Cart
                                 </h2>
-                                <span className='bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold'>
+                                <span className='bg-gradient-to-r from-red-500 to-violet-600 text-white px-3 py-1 rounded-full text-sm font-semibold'>
                                     {cartItem.length} {cartItem.length === 1 ? 'Item' : 'Items'}
                                 </span>
                             </div>
                             {cartItem.length > 0 && (
                                 <button 
                                     onClick={clearCart}
-                                    className='flex cursor-pointer items-center gap-2 text-red-500 hover:text-red-700 transition-colors duration-300 font-semibold'
+                                    className='flex cursor-pointer items-center gap-2 text-violet-500 hover:text-violet-700 transition-colors duration-300 font-semibold'
                                 >
                                     <FiTrash2 />
                                     Clear All
@@ -100,7 +97,7 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                                 <div className='flex justify-between items-center mb-6'>
                                     <h3 className='text-2xl font-bold text-gray-800'>Total Amount</h3>
                                     <div className='text-right'>
-                                        <span className='text-3xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent'>
+                                        <span className='text-3xl font-bold bg-gradient-to-r from-red-600 to-violet-600 bg-clip-text text-transparent'>
                                             ${totalPrice.toFixed(2)}
                                         </span>
                                         <p className='text-sm text-gray-500'>/month</p>
@@ -111,9 +108,9 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                                 <button 
                                     onClick={handlePayment}
                                     disabled={isProcessing}
-                                    className='relative cursor-pointer overflow-hidden group w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white rounded-xl py-4 font-bold text-xl transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed'
+                                    className='relative cursor-pointer overflow-hidden group w-full bg-gradient-to-r from-red-600 to-violet-600 hover:from-red-700 hover:to-violet-700 text-white rounded-xl py-4 font-bold text-xl transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-violet-500/50 disabled:opacity-50 disabled:cursor-not-allowed'
                                 >
-                                    <span className='absolute inset-0 w-0 bg-gradient-to-r from-red-700 to-red-600 transition-all duration-300 ease-out group-hover:w-full'></span>
+                                    <span className='absolute inset-0 w-0 bg-gradient-to-r from-red-700 to-violet-700 transition-all duration-300 ease-out group-hover:w-full'></span>
                                     <span className='relative flex items-center justify-center gap-3'>
                                         {isProcessing ? (
                                             <>

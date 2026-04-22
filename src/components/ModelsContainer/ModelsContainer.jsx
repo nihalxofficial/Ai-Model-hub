@@ -16,7 +16,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
 
     const filteredModels = models.filter(model => {
         const matchesCategory = selectedCategory === 'all' || model.category === selectedCategory;
-        const matchesSearch = model.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const matchesSearch = model.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                              model.description?.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCategory && matchesSearch;
     });
@@ -27,7 +27,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                 {/* Header Section */}
                 <div className={`text-center space-y-6 mb-12 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                     {/* Badge */}
-                    <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-purple-500/10 backdrop-blur-sm border border-red-500/30 text-red-500 text-sm font-semibold px-5 py-2 rounded-full shadow-lg'>
+                    <div className='inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-violet-500/10 backdrop-blur-sm border border-red-500/30 text-red-500 text-sm font-semibold px-5 py-2 rounded-full shadow-lg'>
                         <FiZap className='text-yellow-500' />
                         🚀 Powered by Latest AI Technology
                         <FiTrendingUp className='text-green-500' />
@@ -47,7 +47,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                             <span className='font-semibold text-gray-700'>{models.length}+ Models</span>
                         </div>
                         <div className='flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md'>
-                            <FaBrain className='text-purple-500 text-xl' />
+                            <FaBrain className='text-violet-500 text-xl' />
                             <span className='font-semibold text-gray-700'>Unlimited Access</span>
                         </div>
                         <div className='flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md'>
@@ -67,7 +67,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                                 placeholder='Search AI models...'
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className='w-full px-5 py-3 pl-12 rounded-full border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition-all duration-300 bg-white shadow-sm'
+                                className='w-full px-5 py-3 pl-12 rounded-full border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 outline-none transition-all duration-300 bg-white shadow-sm'
                             />
                             <svg
                                 className='absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5'
@@ -87,7 +87,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                                     onClick={() => setSelectedCategory(category)}
                                     className={`px-5 py-2 cursor-pointer rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                                         selectedCategory === category
-                                            ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30'
+                                            ? 'bg-gradient-to-r from-red-500 to-violet-600 text-white shadow-lg shadow-violet-500/30'
                                             : 'bg-white text-gray-600 hover:bg-gray-100 shadow-sm'
                                     }`}
                                 >
@@ -138,7 +138,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
 
                 {/* Featured Banner */}
                 {filteredModels.length > 0 && (
-                    <div className='mt-16 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 rounded-2xl p-8 text-white shadow-2xl transform hover:scale-[1.02] transition-transform duration-300'>
+                    <div className='mt-16 bg-gradient-to-r from-red-500 via-violet-500 to-red-500 rounded-2xl p-8 text-white shadow-2xl transform hover:scale-[1.02] transition-transform duration-300'>
                         <div className='flex flex-col lg:flex-row justify-between items-center gap-6'>
                             <div className='text-center lg:text-left'>
                                 <div className='flex items-center gap-2 justify-center lg:justify-start mb-2'>
@@ -148,7 +148,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                                 <h3 className='text-2xl lg:text-3xl font-bold mb-2'>Upgrade to Annual Plan</h3>
                                 <p className='text-white/90'>Save 40% and get 3 months absolutely free!</p>
                             </div>
-                            <button className='bg-white cursor-pointer text-red-600 px-8 py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
+                            <button className='bg-white cursor-pointer text-violet-600 px-8 py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
                                 Claim Offer →
                             </button>
                         </div>

@@ -14,7 +14,7 @@ const Banner = () => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
@@ -23,17 +23,17 @@ const Banner = () => {
           {/* Left Content */}
           <div className={`space-y-6 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-purple-500/10 backdrop-blur-sm border border-red-500/30 text-red-500 text-sm font-semibold px-5 py-2 rounded-full shadow-lg">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-violet-500/10 backdrop-blur-sm border border-red-500/30 text-red-500 text-sm font-semibold px-5 py-2 rounded-full shadow-lg">
               <FaStar className="text-yellow-500" />
               ✨ Frontier AI Models
-              <FaGem className="text-purple-500" />
+              <FaGem className="text-violet-500" />
             </div>
 
             {/* Heading */}
             <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tighter">
               One Subscription.
               <br />
-              <span className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 via-violet-600 to-red-600 bg-clip-text text-transparent">
                 All the AIs You Need
               </span>
             </h1>
@@ -46,8 +46,8 @@ const Banner = () => {
 
             {/* CTA Button */}
             <div className="flex flex-wrap gap-4 pt-4">
-              <button className="group cursor-pointer relative bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-red-500/40 transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/60 flex items-center gap-3 overflow-hidden">
-                <span className="absolute inset-0 w-0 bg-gradient-to-r from-red-700 to-red-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              <button className="group cursor-pointer relative bg-gradient-to-r from-red-600 to-violet-600 hover:from-red-700 hover:to-violet-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-red-500/40 transition-all duration-300 transform hover:scale-105 hover:shadow-violet-500/60 flex items-center gap-3 overflow-hidden">
+                <span className="absolute inset-0 w-0 bg-gradient-to-r from-red-700 to-violet-700 transition-all duration-300 ease-out group-hover:w-full"></span>
                 <span className="relative flex items-center gap-3">
                   <FaRocket className="text-xl" />
                   Get Unlimited Access
@@ -59,14 +59,14 @@ const Banner = () => {
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
               <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-violet-500 rounded-lg flex items-center justify-center text-white font-bold">
                   50+
                 </div>
                 <div className="text-sm font-semibold text-gray-700">Frontier Models</div>
               </div>
               
               <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
+                <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center text-white">
                   <FaInfinity />
                 </div>
                 <div className="text-sm font-semibold text-gray-700">No Usage Limits</div>
@@ -97,7 +97,7 @@ const Banner = () => {
           <div className={`relative flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
             <div className="relative group">
               {/* Subtle Glowing effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-purple-500/20 rounded-3xl blur-2xl transition-all duration-700 group-hover:opacity-100 opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-violet-500/20 rounded-3xl blur-2xl transition-all duration-700 group-hover:opacity-100 opacity-50"></div>
               
               {/* Main Image Container */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-3xl">

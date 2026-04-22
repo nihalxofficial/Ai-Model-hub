@@ -1,7 +1,7 @@
 import React, { use, useState, useEffect } from 'react';
 import ModelsContainer from '../ModelsContainer/ModelsContainer';
 import CartContainer from '../CartContainer/CartContainer';
-import { FiGrid, FiShoppingCart, FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { FiGrid, FiShoppingCart, FiArrowRight } from 'react-icons/fi';
 import { FaRobot, FaShoppingBag } from 'react-icons/fa';
 
 const Models = ({ modelPromise }) => {
@@ -41,13 +41,13 @@ const Models = ({ modelPromise }) => {
                 {/* Animated Background */}
                 <div className='absolute inset-0 opacity-10'>
                     <div className='absolute -top-40 -right-40 w-80 h-80 bg-red-500 rounded-full blur-3xl'></div>
-                    <div className='absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full blur-3xl'></div>
+                    <div className='absolute -bottom-40 -left-40 w-80 h-80 bg-violet-500 rounded-full blur-3xl'></div>
                 </div>
                 
                 <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10'>
                     <div className='text-center space-y-4'>
                         <div className='inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2'>
-                            <FaRobot className='text-red-400' />
+                            <FaRobot className='text-violet-400' />
                             <span className='text-sm font-semibold'>AI Models Hub</span>
                         </div>
                         <h1 className='text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent'>
@@ -64,7 +64,7 @@ const Models = ({ modelPromise }) => {
                             onClick={() => handleTabChange("ModelsContainer")}
                             className={`group cursor-pointer relative overflow-hidden px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
                                 handleTab === "ModelsContainer"
-                                    ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30'
+                                    ? 'bg-gradient-to-r from-red-500 to-violet-600 text-white shadow-lg shadow-violet-500/30'
                                     : 'bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/20'
                             }`}
                         >
@@ -81,7 +81,7 @@ const Models = ({ modelPromise }) => {
                             onClick={() => handleTabChange("Cart")}
                             className={`group cursor-pointer relative overflow-hidden px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
                                 handleTab === "Cart"
-                                    ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30'
+                                    ? 'bg-gradient-to-r from-red-500 to-violet-600 text-white shadow-lg shadow-violet-500/30'
                                     : 'bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/20'
                             }`}
                         >
@@ -89,7 +89,7 @@ const Models = ({ modelPromise }) => {
                                 <FiShoppingCart className='text-xl' />
                                 My Cart
                                 {cartItem.length > 0 && (
-                                    <span className='absolute -top-2 -right-6 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse'>
+                                    <span className='absolute -top-2 -right-6 bg-gradient-to-r from-red-500 to-violet-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse'>
                                         {totalItems}
                                     </span>
                                 )}
@@ -124,7 +124,7 @@ const Models = ({ modelPromise }) => {
                 <div className='fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 lg:hidden'>
                     <button
                         onClick={() => handleTabChange("Cart")}
-                        className='bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 animate-bounce-slow'
+                        className='bg-gradient-to-r from-red-500 to-violet-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 animate-bounce-slow'
                     >
                         <FaShoppingBag className='text-xl' />
                         <span className='font-semibold'>{totalItems} items in cart</span>
@@ -139,8 +139,8 @@ const Models = ({ modelPromise }) => {
                     <div className='container mx-auto px-8 py-4'>
                         <div className='flex justify-between items-center'>
                             <div className='flex items-center gap-4'>
-                                <div className='bg-red-100 p-2 rounded-full'>
-                                    <FaShoppingBag className='text-red-600 text-xl' />
+                                <div className='bg-violet-100 p-2 rounded-full'>
+                                    <FaShoppingBag className='text-violet-600 text-xl' />
                                 </div>
                                 <div>
                                     <span className='font-bold text-gray-800'>{totalItems} items in your cart</span>
@@ -149,7 +149,7 @@ const Models = ({ modelPromise }) => {
                             </div>
                             <button
                                 onClick={() => handleTabChange("Cart")}
-                                className='bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300'
+                                className='bg-gradient-to-r from-red-500 to-violet-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300'
                             >
                                 View Cart →
                             </button>

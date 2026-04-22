@@ -148,7 +148,7 @@ const ModelsContainer = ({ models, cartItem, setCartItem }) => {
                                 <h3 className='text-2xl lg:text-3xl font-bold mb-2'>Upgrade to Annual Plan</h3>
                                 <p className='text-white/90'>Save 40% and get 3 months absolutely free!</p>
                             </div>
-                            <button className='bg-white text-red-600 px-8 py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
+                            <button className='bg-white cursor-pointer text-red-600 px-8 py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
                                 Claim Offer →
                             </button>
                         </div>

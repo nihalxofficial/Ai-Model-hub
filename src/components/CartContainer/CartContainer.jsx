@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CartCard from '../CartCard.jsx/CartCard';
 import { toast } from 'react-toastify';
-import { FiShoppingBag, FiTrash2, FiCreditCard, FiShield, FiTruck } from 'react-icons/fi';
-import { FaShoppingCart, FaArrowRight } from 'react-icons/fa';
+import { FiShoppingBag, FiTrash2, FiCreditCard, FiArrowRight } from 'react-icons/fi';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const CartContainer = ({ cartItem, setCartItem }) => {
     const [isProcessing, setIsProcessing] = useState(false);
     
     const totalPrice = cartItem.reduce((sum, item) => sum + item.price, 0);
-    const tax = totalPrice * 0.1; // 10% tax
-    const shipping = totalPrice > 100 ? 0 : 10; // Free shipping over $100
-    const grandTotal = totalPrice + tax + shipping;
 
     const deleteItem = (id) => {
         const deletedArr = cartItem.filter(item => item.id !== id);
@@ -33,7 +30,6 @@ const CartContainer = ({ cartItem, setCartItem }) => {
 
     const handlePayment = async () => {
         setIsProcessing(true);
-        // Simulate payment processing
         await new Promise(resolve => setTimeout(resolve, 2000));
         setCartItem([]);
         toast.success("Payment successful! Thank you for your purchase 🎉", {
@@ -53,7 +49,10 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                         </div>
                         <h2 className='text-3xl lg:text-4xl font-bold text-gray-600 mb-3'>Your cart is Empty</h2>
                         <p className='text-gray-400 text-lg mb-6'>Looks like you haven't added any items yet</p>
-                        <button className='bg-gradient-to-r cursor-pointer from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-red-500/50'>
+                        <button 
+                            onClick={() => window.location.href = '/'}
+                            className='bg-gradient-to-r cursor-pointer from-red-500 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-red-500/50'
+                        >
                             Continue Shopping
                         </button>
                     </div>
@@ -75,7 +74,7 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                             {cartItem.length > 0 && (
                                 <button 
                                     onClick={clearCart}
-                                    className='flex items-center gap-2 text-red-500 hover:text-red-700 transition-colors duration-300 font-semibold'
+                                    className='flex cursor-pointer items-center gap-2 text-red-500 hover:text-red-700 transition-colors duration-300 font-semibold'
                                 >
                                     <FiTrash2 />
                                     Clear All
@@ -83,57 +82,36 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                             )}
                         </div>
 
-                        {/* Cart Items Grid */}
+                        {/* Cart Items */}
                         <div className='space-y-4'>
                             {cartItem.map(item => (
-                                <CartCard key={item.id} item={item} deleteItem={deleteItem} />
+                                <CartCard 
+                                    key={item.id} 
+                                    item={item} 
+                                    deleteItem={deleteItem} 
+                                />
                             ))}
                         </div>
 
-                        {/* Order Summary */}
+                        {/* Total and Checkout - Simplified */}
                         <div className='bg-white rounded-2xl shadow-xl overflow-hidden mt-8'>
                             <div className='p-6 lg:p-8'>
-                                <h3 className='text-2xl font-bold text-gray-800 mb-6'>Order Summary</h3>
-                                
-                                <div className='space-y-4'>
-                                    <div className='flex justify-between items-center pb-4 border-b border-gray-200'>
-                                        <span className='text-gray-600'>Subtotal</span>
-                                        <span className='font-semibold text-gray-800'>${totalPrice.toFixed(2)}</span>
-                                    </div>
-                                    <div className='flex justify-between items-center pb-4 border-b border-gray-200'>
-                                        <span className='text-gray-600'>Tax (10%)</span>
-                                        <span className='font-semibold text-gray-800'>${tax.toFixed(2)}</span>
-                                    </div>
-                                    <div className='flex justify-between items-center pb-4 border-b border-gray-200'>
-                                        <div className='flex items-center gap-2'>
-                                            <FiTruck className='text-gray-500' />
-                                            <span className='text-gray-600'>Shipping</span>
-                                        </div>
-                                        <span className='font-semibold text-gray-800'>
-                                            {shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}
-                                        </span>
-                                    </div>
-                                    {shipping === 0 && totalPrice > 100 && (
-                                        <div className='bg-green-50 text-green-600 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2'>
-                                            <FiShield />
-                                            🎉 Free Shipping Applied!
-                                        </div>
-                                    )}
-                                    <div className='flex justify-between items-center pt-4'>
-                                        <span className='text-2xl font-bold text-gray-800'>Total</span>
+                                {/* Total Section */}
+                                <div className='flex justify-between items-center mb-6'>
+                                    <h3 className='text-2xl font-bold text-gray-800'>Total Amount</h3>
+                                    <div className='text-right'>
                                         <span className='text-3xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent'>
-                                            ${grandTotal.toFixed(2)}
+                                            ${totalPrice.toFixed(2)}
                                         </span>
+                                        <p className='text-sm text-gray-500'>/month</p>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Checkout Button */}
-                            <div className='p-6 lg:p-8 bg-gradient-to-r from-gray-50 to-gray-100'>
+                                {/* Checkout Button */}
                                 <button 
                                     onClick={handlePayment}
                                     disabled={isProcessing}
-                                    className='relative overflow-hidden group w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white rounded-xl py-4 font-bold text-xl transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed'
+                                    className='relative cursor-pointer overflow-hidden group w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white rounded-xl py-4 font-bold text-xl transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed'
                                 >
                                     <span className='absolute inset-0 w-0 bg-gradient-to-r from-red-700 to-red-600 transition-all duration-300 ease-out group-hover:w-full'></span>
                                     <span className='relative flex items-center justify-center gap-3'>
@@ -146,7 +124,7 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                                             <>
                                                 <FiCreditCard className='text-2xl' />
                                                 Proceed to Checkout
-                                                <FaArrowRight className='group-hover:translate-x-1 transition-transform duration-300' />
+                                                <FiArrowRight className='group-hover:translate-x-1 transition-transform duration-300' />
                                             </>
                                         )}
                                     </span>
@@ -155,9 +133,9 @@ const CartContainer = ({ cartItem, setCartItem }) => {
                                 <div className='flex items-center justify-center gap-4 mt-4 text-xs text-gray-500'>
                                     <span className='flex items-center gap-1'>🔒 Secure Payment</span>
                                     <span>•</span>
-                                    <span className='flex items-center gap-1'>💳 100% Money Back Guarantee</span>
+                                    <span className='flex items-center gap-1'>💳 Instant Confirmation</span>
                                     <span>•</span>
-                                    <span className='flex items-center gap-1'>🚚 Fast Shipping</span>
+                                    <span className='flex items-center gap-1'>🚀 Quick Access</span>
                                 </div>
                             </div>
                         </div>
